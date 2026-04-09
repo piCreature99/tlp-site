@@ -1,6 +1,6 @@
 {
   "$schema": "node_modules/wrangler/config-schema.json",
-  "name": "tpl-site",
+  "name": "tlp-site",
   "main": "src/index.ts", // This identifies you as a Worker
   "compatibility_date": "2026-04-09",
   "compatibility_flags": [
