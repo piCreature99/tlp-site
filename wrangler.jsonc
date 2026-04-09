@@ -1,0 +1,16 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "tpl-site",
+  "main": "src/index.ts", // This identifies you as a Worker
+  "compatibility_date": "2026-04-09",
+  "compatibility_flags": [
+    "nodejs_compat"
+  ],
+  "assets": {
+    "directory": "./dist", // Tells the Worker where the React files are
+    "binding": "ASSETS"    // Connects those files to your 'env.ASSETS' code
+  },
+  "observability": {
+    "enabled": true
+  }
+}
