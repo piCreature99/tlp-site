@@ -4,16 +4,16 @@ import { HorizontalScrollWrapper } from './HorizontalScrollWrapper';
 import { useMetadata } from './MetadataProvider';
 import { useLocalProducts } from '../context/LocalProductContext';
 
-const MOCK_TAGS = [
-    'Best Seller',
-    'Top Rated',
-    'Customer Favorite',
-    'Limited Edition',
-    'Low Stock',
-    'Flash sale',
-    '10% off',
-    'Price Drop',
-]
+// const MOCK_TAGS = [
+//     'Best Seller',
+//     'Top Rated',
+//     'Customer Favorite',
+//     'Limited Edition',
+//     'Low Stock',
+//     'Flash sale',
+//     '10% off',
+//     'Price Drop',
+// ]
 
 export default function TagBar() {
     const { tags } = useMetadata();

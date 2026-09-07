@@ -1,42 +1,43 @@
-import React, { useEffect, useState } from 'react';
 import {
-  Box,
-  Typography,
-  Paper,
+  CreditCard,
+  LocalShipping,
+  Logout,
+  Person,
+  Settings,
+  ShoppingCart,
+  VerifiedUser
+} from '@mui/icons-material';
+import {
   Avatar,
+  Box,
+  Button,
+  Chip,
+  Divider,
   List,
   ListItem,
   ListItemButton,
   ListItemIcon,
   ListItemText,
-  Divider,
-  Button,
-  TextField,
+  Paper,
   Stack,
-  Chip
+  TextField,
+  Typography
 } from '@mui/material';
 import Grid from '@mui/material/Grid'; // Unified v6 import channel
-import {
-  Person,
-  ShoppingBag,
-  Settings,
-  CreditCard,
-  VerifiedUser,
-  Logout,
-  ShoppingCart,
-  LocalShipping
-} from '@mui/icons-material';
-import { motion, AnimatePresence } from 'framer-motion';
+import { AnimatePresence, motion } from 'framer-motion';
+import { useEffect, useState } from 'react';
 
-import OrderManagementPage from './OrderManagementPage'; 
-import { useAuth, type UserProfile } from './AuthContext';
+import { useLocation } from 'react-router-dom';
+import { useAuth } from './AuthContext';
 import Cart from './Cart';
 import { useCart } from './CartContext';
-import { useLocation } from 'react-router-dom';
+import OrderManagementPage from './OrderManagementPage';
 
 export default function UserProfilePage() {
   const [activeTab, setActiveTab] = useState<'profile' | 'orders' | 'cart'>('profile');
-  const { user, isAuthenticated, loading, logout } = useAuth();
+  const { user, 
+    // isAuthenticated, loading, logout 
+  } = useAuth();
   const {cart} = useCart();
   const {state} = useLocation();
   // console.log(user);
@@ -47,7 +48,7 @@ export default function UserProfilePage() {
     }
   }, [state])
 
-  const [userInfo, setUserInfo] = useState<UserProfile | null>(
+  // const [userInfo, setUserInfo] = useState<UserProfile | null>(
 //     {
 //     firstName: "Sarah",
 //     lastName: "Jenkins",
@@ -56,7 +57,7 @@ export default function UserProfilePage() {
 //     tier: "Platinum Appliance Elite Member",
 //     joinDate: "Member since October 2024"
 //   }
-);
+// );
 
   return (
     <Box sx={{ p: { xs: 2, md: 4 }, maxWidth: '1440px', mx: 'auto', minHeight: '100vh', bgcolor: 'background.default' }}>
@@ -178,7 +179,7 @@ export default function UserProfilePage() {
                       <TextField 
                         label="Display Name" 
                         value={user?.name} 
-                        onChange={(e) => {}}
+                        // onChange={(e) => {}}
                         fullWidth 
                         size="small" 
                       />

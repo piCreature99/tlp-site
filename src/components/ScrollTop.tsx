@@ -1,5 +1,4 @@
-import { useScrollTrigger, Zoom, Fab, Box } from '@mui/material';
-import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
+import { Box, useScrollTrigger, Zoom } from '@mui/material';
 
 export default function ScrollTop({ children }: { children: React.ReactElement }) {
   // This hook returns 'true' if the user has scrolled down past 100px

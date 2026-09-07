@@ -1,5 +1,4 @@
-import React, { createContext, useContext, useState, useEffect, useCallback, useMemo } from 'react';
-import Dexie, { type Table } from 'dexie';
+import React, { useCallback, useEffect, useState } from 'react';
 // 1. Import your executable runtime values first
 import { localDb } from '../api/indexedDB';
 // 2. Import your structural TypeScript interfaces clearly marked as types
@@ -20,8 +19,8 @@ export function LocalProductProvider({ children }: { children: React.ReactNode }
   const [selectedBrands, setSelectedBrands] = useState<Set<string>>(new Set());
   const [selectedTags, setSelectedTags] = useState<Set<string>>(new Set());
   const [activePage, setActivePage] = useState<number>(1);
-  const [productCount, setProductCount] = useState<number>(48); // limit parameter matching your target layout
-
+  // const [productCount, setProductCount] = useState<number>(48); // limit parameter matching your target layout
+  const productCount = 48
   // --- Processed View Products Data Output ---
   const [viewProducts, setViewProducts] = useState<JoinedProduct[]>([]);
   const [totalPages, setTotalPages] = useState<number>(1);
@@ -142,11 +141,11 @@ export function LocalProductProvider({ children }: { children: React.ReactNode }
 
     // 2. Map-level dictionary indexing
     const categoryIdMap = new Map(allCategories.map(c => [c.id, c]));
-    const categorySlugMap = new Map(allCategories.map(c => [c.slug, c.id]));
+    // const categorySlugMap = new Map(allCategories.map(c => [c.slug, c.id]));
     const brandIdMap = new Map(allBrands.map(b => [b.id, b]));
-    const brandSlugMap = new Map(allBrands.map(b => [b.slug, b.id]));
+    // const brandSlugMap = new Map(allBrands.map(b => [b.slug, b.id]));
     const tagIdMap = new Map(allTags.map(t => [t.id, t]));
-    const tagSlugMap = new Map(allTags.map(t => [t.slug, t.id]));
+    // const tagSlugMap = new Map(allTags.map(t => [t.slug, t.id]));
 
     // Group tag IDs by product_id
     const productToTagsMap = new Map<number, number[]>();

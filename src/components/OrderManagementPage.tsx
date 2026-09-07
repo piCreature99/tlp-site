@@ -1,33 +1,32 @@
-import React, { useState } from 'react';
 import {
+  Cancel,
+  CheckCircle,
+  KeyboardArrowDown,
+  KeyboardArrowUp,
+  LocalShipping,
+  Pending,
+  Search
+} from '@mui/icons-material';
+import {
+  Avatar,
   Box,
-  Typography,
+  Chip,
+  Collapse,
+  IconButton,
+  InputAdornment,
   Paper,
+  Stack,
   Table,
   TableBody,
   TableCell,
   TableContainer,
   TableHead,
   TableRow,
-  Chip,
-  IconButton,
-  Collapse,
-  Avatar,
-  Stack,
   TextField,
-  InputAdornment
+  Typography
 } from '@mui/material';
 import Grid from '@mui/material/Grid'; // Standard v6 import (Grid2 engine under the hood)
-import {
-  KeyboardArrowDown,
-  KeyboardArrowUp,
-  Search,
-  LocalShipping,
-  CheckCircle,
-  Pending,
-  Cancel
-} from '@mui/icons-material';
-import { motion, AnimatePresence } from 'framer-motion';
+import { useState } from 'react';
 
 interface OrderedItem {
   id: string;

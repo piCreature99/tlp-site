@@ -1,8 +1,7 @@
-import { useState } from 'react';
-import { Box, Card, Container, Typography, TextField, Button, Divider, Link, IconButton, InputAdornment } from '@mui/material';
+import { Box, Button, Card, Container, Divider, IconButton, InputAdornment, Link, TextField, Typography } from '@mui/material';
 import { GoogleLogin } from '@react-oauth/google';
-import { useNavigate, Link as RouterLink } from 'react-router-dom';
-import { useAuth } from './AuthContext';
+import { useState } from 'react';
+import { Link as RouterLink } from 'react-router-dom';
 import { generateRandomName } from '../api/helper';
 // Remove this: import ShuffleIcon from '@mui/icons-material/Shuffle';
 import CasinoIcon from '@mui/icons-material/Casino'; // Add this

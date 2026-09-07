@@ -1,9 +1,8 @@
 import { Box, Skeleton } from '@mui/material'; // Using Grid2 for the latest standard
 import Grid from '@mui/material/Grid'; // Standard import
 import React from 'react';
-import ProductCard from './ProductCard';
-import type { Product } from './types/types';
 import type { JoinedProduct } from '../api/indexedDB';
+import ProductCard from './ProductCard';
 
 interface ProductSlotProps {
   children?: React.ReactNode;
@@ -11,7 +10,7 @@ interface ProductSlotProps {
   product: JoinedProduct | undefined;
 }
 
-export default function ProductSlot({ children, loading, product }: ProductSlotProps){
+export default function ProductSlot({loading, product }: ProductSlotProps){
 
   return (
     // No "item" prop here! We just define the columns.

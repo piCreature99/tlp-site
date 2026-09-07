@@ -1,5 +1,4 @@
-import { TableRow, TableCell, Collapse, Box, Typography, Paper, Table, TableHead, TableBody, Stack, Avatar, TextField, TableContainer } from '@mui/material';
-import React from 'react';
+import { Avatar, Box, Paper, Stack, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Typography } from '@mui/material';
 import type { CartItem } from './CartContext';
 
 

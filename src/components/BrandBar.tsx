@@ -4,18 +4,18 @@ import { HorizontalScrollWrapper } from './HorizontalScrollWrapper';
 import { useMetadata } from './MetadataProvider';
 import { useLocalProducts } from '../context/LocalProductContext';
 
-const MOCK_BRANDS = [
-    'SAMSUNG',
-    'SONY',
-    'APPLE',
-    'ASUS',
-    'DELL',
-    'HP',
-    'LENOVO',
-    'BOSE',
-    'SENNHEISER',
-    'LOGITECH',
-]
+// const MOCK_BRANDS = [
+//     'SAMSUNG',
+//     'SONY',
+//     'APPLE',
+//     'ASUS',
+//     'DELL',
+//     'HP',
+//     'LENOVO',
+//     'BOSE',
+//     'SENNHEISER',
+//     'LOGITECH',
+// ]
 
 export default function BrandBar() {
     const { brands } = useMetadata();

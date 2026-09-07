@@ -4,14 +4,13 @@ import { motion } from 'framer-motion';
 import { useState } from 'react';
 import BrandBar from './BrandBar';
 
+import { useLocalProducts } from '../context/LocalProductContext';
 import { theme } from '../themes/theme';
 import { HorizontalScrollWrapper } from './HorizontalScrollWrapper';
 import ProductPagination from './PaginationBar';
 import ProductDisplay from './ProductDisplay';
 import TagBar from './TagBar';
-import type { Category, Product } from './types/types';
 import SideVector from './types/utils/vectors/navVec';
-import { useLocalProducts } from '../context/LocalProductContext';
 
 export default function VectorProductBar() {
     const { categories, products, setSelectedCategory, activePage, totalPages, setActivePage } = useLocalProducts();
@@ -20,10 +19,10 @@ export default function VectorProductBar() {
     // const [products, setProducts] = useState<Product[]>([]);
     // const [selectedCategory, setSelectedCategory] = useState<Category | null>(null);
     // const [categories, setCategories] = useState<Category[]>([]);
-    const [isLoading, setLoading] = useState(true);
-    const [page, setPage] = useState<number>(1);
+    // const [isLoading, setLoading] = useState(true);
+    // const [page, setPage] = useState<number>(1);
     // const [totalPages, setTotalPages] = useState<number>(1);
-    const [isAnimating, setIsAnimating] = useState(false);
+    // const [isAnimating, setIsAnimating] = useState(false);
     const [direction, setDirection] = useState(0);
     // const [pageData, setPageData] = useState([1, 0]); // [activeIndex, direction]
     // const [activePage, direction] = pageData;
@@ -34,13 +33,14 @@ export default function VectorProductBar() {
     // Returns true if the screen is between 600px and 899px
     const isTablet = useMediaQuery(theme.breakpoints.between('sm', 'md'));
     // Returns true if the screen is below xs
-    const isSmallest = useMediaQuery(theme.breakpoints.down('xs'));
+    // const isSmallest = useMediaQuery(theme.breakpoints.down('xs'));
     const productCount = isDesktop ? 12 : isTablet ? 9 : 6;
 
     // const limit = isDesktop ? 12 : 6;
 
     const handlePageChange = (event: React.ChangeEvent<unknown>, value: number): void => {
         updateSlider(value);
+        event;
         // window.scrollTo({ top: 0, behavior: 'smooth' });
     };
 
@@ -184,7 +184,7 @@ export default function VectorProductBar() {
             {/* <BannerSlider activeIndex={activeIndex} /> */}
             <TagBar />
             <BrandBar />
-            <ProductDisplay index={activeIndex} products={products} productCount={productCount} activePageIndex={activePage} dir={direction} isLoading={isLoading} />
+            <ProductDisplay index={activeIndex} products={products} productCount={productCount} activePageIndex={activePage} dir={direction} isLoading={false} />
             <ProductPagination
                 page={activePage}
                 totalPages={totalPages}

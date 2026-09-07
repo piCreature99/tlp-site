@@ -1,44 +1,39 @@
-import React, { useEffect, useState } from 'react';
-import {
-    AppBar,
-    Box,
-    Toolbar,
-    IconButton,
-    Typography,
-    InputBase,
-    MenuItem,
-    Menu,
-    Button,
-    useScrollTrigger,
-    Slide,
-    Badge,
-    Stack,
-    Avatar,
-    CircularProgress,
-    Paper,
-    ClickAwayListener,
-    List,
-    ListItemButton,
-    ListItemText,
-    ListItemAvatar,
-} from '@mui/material';
-import { styled, alpha } from '@mui/material/styles';
 import MenuIcon from '@mui/icons-material/Menu';
 import SearchIcon from '@mui/icons-material/Search';
-import AccountCircle from '@mui/icons-material/AccountCircle';
+import {
+    AppBar,
+    Avatar,
+    Badge,
+    Box,
+    Button,
+    CircularProgress,
+    ClickAwayListener,
+    IconButton,
+    InputBase,
+    List,
+    ListItemAvatar,
+    ListItemButton,
+    ListItemText,
+    Menu,
+    MenuItem,
+    Paper,
+    Slide,
+    Stack,
+    Toolbar,
+    Typography,
+    useScrollTrigger,
+} from '@mui/material';
+import { alpha, styled } from '@mui/material/styles';
+import React, { useEffect, useState } from 'react';
 import ProductSlider from './ProductSlider';
 // import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
 // import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
-import { useCart } from './CartContext';
-import type { Product } from './types/types';
-import { GoogleLogin } from '@react-oauth/google';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { useAuth } from './AuthContext';
-import Inventory2Icon from '@mui/icons-material/Inventory2';
-import { useProducts } from './ProductProvider';
-import { useLocalProducts } from '../context/LocalProductContext';
 import { singleHyphenFormat } from '../api/helper';
+import { useLocalProducts } from '../context/LocalProductContext';
+import { useAuth } from './AuthContext';
+import { useCart } from './CartContext';
 
 // 1. Enhanced Search Bar (Longer and centered-ish)
 const Search = styled('div')(({ theme }) => ({
@@ -129,7 +124,7 @@ function HideOnScroll(props: { children: React.ReactElement, cart: number }) {
 export default function Navbar() {
     const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
     const { user, isAuthenticated, loading, logout } = useAuth();
-    const [isLoggedIn, setIsLoggedIn] = useState(false);
+    // const [isLoggedIn, setIsLoggedIn] = useState(false);
     const navigate = useNavigate();
     const location = useLocation();
     const { products } = useLocalProducts();
@@ -153,7 +148,9 @@ export default function Navbar() {
     // const showNoResults = searchQuery.trim().length > 0 && filteredProducts.length === 0;
     // useScrollTrigger returns 'true' when scrolling down
 
-    const { cart, cartCount } = useCart();
+    const { 
+        // cart,
+         cartCount } = useCart();
 
     useEffect(() => {
 
@@ -167,7 +164,7 @@ export default function Navbar() {
         setAnchorEl(null);
     };
 
-    const isWorkArea = location.pathname === "/" || location.pathname.startsWith("/products");
+    // const isWorkArea = location.pathname === "/" || location.pathname.startsWith("/products");
 
 
     return (

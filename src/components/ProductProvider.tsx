@@ -31,7 +31,8 @@ export const ProductProvider = ({ children }: { children: React.ReactNode }) => 
   const [categories, setCategories] = useState<Category[]>([]);
   const [selectedBrands, setSelectedBrands] = useState<Set<string>>(new Set());
   const [selectedTags, setSelectedTags] = useState<Set<string>>(new Set());
-  const [productCount, setProductCount] = useState(12);
+  // const [productCount, setProductCount] = useState(12);
+  const productCount = 12;
 
   const toggleFilter = (slug: string, setSelected: React.Dispatch<React.SetStateAction<Set<string>>>) => {
     setSelected((prevSet) => {

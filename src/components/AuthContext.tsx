@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState, useEffect, type ReactNode } from 'react';
+import { createContext, useContext, useEffect, useState, type ReactNode } from 'react';
 
 // 1. Define what the User looks like
 export interface UserProfile {
@@ -35,7 +35,8 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
     }
     return null;
   });
-  const [loading, setLoading] = useState(false);
+  // const [loading, setLoading] = useState(false);
+  const loading = false;
   // console.log(user);
   
   useEffect(() => {

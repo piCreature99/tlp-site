@@ -1,13 +1,9 @@
-import Grid from '@mui/material/Grid'; // Standard import
-import { Box, Container, Skeleton, Typography, useMediaQuery } from '@mui/material';
-import ProductCard from './ProductCard';
-import { useState, useEffect, useRef } from 'react';
-import type { Product } from './types/types';
-import ProductSlot from './ProductSlot';
-import { theme } from '../themes/theme';
-import { AnimatePresence, motion } from 'framer-motion';
 import { SearchOff } from '@mui/icons-material';
+import { Box, Container, Typography } from '@mui/material';
+import { AnimatePresence, motion } from 'framer-motion';
+import { useEffect, useRef, useState } from 'react';
 import type { JoinedProduct } from '../api/indexedDB';
+import ProductSlot from './ProductSlot';
 
 // const shuffleArray = (array: any) => {
 //     const shuffled = [...array];
@@ -35,7 +31,11 @@ import type { JoinedProduct } from '../api/indexedDB';
 // ];
 
 
-export default function ProductDisplay({ index, products, productCount, activePageIndex, dir, isLoading = true }: { index: number, products: JoinedProduct[], productCount: number, activePageIndex: number, dir: number, isLoading?: boolean }) {
+export default function ProductDisplay({ 
+    // index, 
+    products, productCount, activePageIndex, dir, 
+    // isLoading = true 
+}: { index: number, products: JoinedProduct[], productCount: number, activePageIndex: number, dir: number, isLoading?: boolean }) {
     const [[page, direction], setPage] = useState([activePageIndex, 0]);
     const [contentHeight, setContentHeight] = useState<number | 'auto'>(0);
     const containerRef = useRef<HTMLDivElement>(null);

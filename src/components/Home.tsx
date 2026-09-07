@@ -1,19 +1,19 @@
+import ArrowBackIcon from '@mui/icons-material/ArrowBack';
+import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 import { Box, Button, Fab, Stack } from "@mui/material";
 import CategoryBar from "./CategoryBar";
 import Footer from "./Footer";
-import Navbar from "./Navbar";
+import { useNavigation } from "./NavigationContext";
+import ProductPage from "./ProductPage";
+import ScrollTop from "./ScrollTop";
 import SideBanners from "./SideBanners";
 import VectorCategoryBar from "./VectorCategoryBar";
 import VectorProductBar from "./VectorProductsBar";
-import ScrollTop from "./ScrollTop";
-import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
-import { useState, useEffect } from "react";
-import { useNavigation } from "./NavigationContext";
-import ProductPage from "./ProductPage";
-import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 
 export default function Home() {
-    const { view, selectedProduct, navigateToHome } = useNavigation();
+    const { view, 
+        // selectedProduct,
+         navigateToHome } = useNavigation();
 
     return (
         <>

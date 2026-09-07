@@ -1,12 +1,10 @@
-import { Box, Typography, Rating, Paper, Stack, Chip, CardActions, Button, IconButton } from '@mui/material';
+import { ShoppingCart } from '@mui/icons-material';
+import { Box, Button, CardActions, Chip, Paper, Rating, Stack, Typography } from '@mui/material';
 import { motion } from 'framer-motion';
-import { useCart } from './CartContext';
-import type { Product } from './types/types';
-import type { JoinedProduct } from '../api/indexedDB';
-import { useNavigation } from './NavigationContext';
-import { ShoppingBag, ShoppingCart, Visibility } from '@mui/icons-material';
 import { useNavigate } from 'react-router';
 import { singleHyphenFormat } from '../api/helper';
+import type { JoinedProduct } from '../api/indexedDB';
+import { useCart } from './CartContext';
 
 // interface ProductCardProps {
 //   product: Product;
@@ -14,7 +12,7 @@ import { singleHyphenFormat } from '../api/helper';
 
 export default function ProductCard({ product }: { product: JoinedProduct }) {
   const { addToCart } = useCart();
-  const { navigateToDetails } = useNavigation();
+  // const { navigateToDetails } = useNavigation();
   const navigate = useNavigate();
 
   return (

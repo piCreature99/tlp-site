@@ -1,6 +1,6 @@
 // src/context/LocalProductContext.ts
 import { createContext, useContext } from 'react';
-import type { Brand, Category, JoinedProduct, Product, ProductTag, Tag } from '../api/indexedDB';
+import type { Category, JoinedProduct } from '../api/indexedDB';
 
 export interface ProductContextType {
   products: JoinedProduct[];

@@ -1,7 +1,7 @@
-import React, { useState, useRef, useEffect, type ReactNode } from 'react';
-import { Box, IconButton } from '@mui/material';
-import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronLeft, ChevronRight } from '@mui/icons-material';
+import { Box, IconButton } from '@mui/material';
+import { AnimatePresence, motion } from 'framer-motion';
+import { useEffect, useRef, useState, type ReactNode } from 'react';
 
 interface Props {
   children: ReactNode;
