@@ -1,4 +1,3 @@
-import { localDb as indexedDB, type Product } from './indexedDB';
 // services/productService.ts
 export async function getProducts(db: D1Database, params: {
   categorySlug: string | null,
@@ -106,7 +105,7 @@ export async function getProducts(db: D1Database, params: {
 }
 
 
-const CACHE_TIMEOUT_MS = 10000; // 10 seconds timeout
+// const CACHE_TIMEOUT_MS = 10000; // 10 seconds timeout
 
 /**
  * Scalable Catalog Fetcher: Fetches up to 48 items per category 

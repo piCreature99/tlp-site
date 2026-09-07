@@ -1,7 +1,6 @@
 import { jwtVerify, SignJWT } from "jose";
-import { type Env } from "../index"
+import { type Env } from "../index";
 import { localDb, type CartItems } from "./indexedDB";
-import type { CartItem } from "../components/CartContext";
 
 // 1. Define the interface matching your custom SignJWT payload structure
 interface CustomJWTPayload {
