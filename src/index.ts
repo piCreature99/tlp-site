@@ -46,7 +46,8 @@ export default {
         }
 
         // 2. Parse the item list payload from the body
-        const { cartItems } = await request.json() as IncomingSyncPayload;
+        // const { cartItems } = await request.json() as IncomingSyncPayload;
+        const { cartItems } = await request.json() as any;
 
         const transactionStatements = [];
 
@@ -57,7 +58,7 @@ export default {
 
         // 4. Batch rebuild the cart rows for this user
         if (cartItems && cartItems.length > 0) {
-          cartItems.forEach((item) => {
+          cartItems.forEach((item: any) => {
             transactionStatements.push(
               env.DB.prepare(`
               INSERT INTO cart_items (user_id, product_id, quantity)
