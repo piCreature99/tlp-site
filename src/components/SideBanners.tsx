@@ -6,9 +6,11 @@ const SIDE_BANNERS = [
 export default function () {
     return (
         <Stack sx={{ width: '20%', justifyContent: 'space-between'}} spacing={2}>
-            {SIDE_BANNERS.map((item, _) => {
+            {SIDE_BANNERS.map((item, i) => {
                 return (
-                    <Box sx={{
+                    <Box 
+                    key={`item.alt } ${i}`}
+                    sx={{
                         width: '100%',
                         aspectRatio: '1 / 2', // Forces the square shape
                         maxHeight: '50%',

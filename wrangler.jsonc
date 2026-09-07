@@ -1,16 +1,38 @@
 {
-  "$schema": "node_modules/wrangler/config-schema.json",
-  "name": "tpl-site",
-  "main": "src/index.ts", // This identifies you as a Worker
-  "compatibility_date": "2026-04-09",
-  "compatibility_flags": [
-    "nodejs_compat"
-  ],
-  "assets": {
-    "directory": "./dist", // Tells the Worker where the React files are
-    "binding": "ASSETS"    // Connects those files to your 'env.ASSETS' code
-  },
-  "observability": {
-    "enabled": true
-  }
+	"$schema": "node_modules/wrangler/config-schema.json",
+	"name": "tpl-site",
+	"main": "src/index.ts", // This identifies you as a Worker
+	"compatibility_date": "2026-04-09",
+	"vars": {
+		"GOOGLE_CLIENT_ID": "426710001132-9vm96ldtl9dpl11upsvnii0tta04bvrt.apps.googleusercontent.com"
+	},
+	"compatibility_flags": [
+		"nodejs_compat"
+	],
+	"assets": {
+		// "directory": "./dist", // Tells the Worker where the React files are
+		"directory": "./public", // Tells the Worker where the React files are
+		"binding": "ASSETS", // Connects those files to your 'env.ASSETS' code
+		"not_found_handling": "single-page-application" // <--- ADD THIS LINE
+		//     You request /login.
+		// Wrangler sees there is no login file, so it sends the user index.html.
+		// The browser receives index.html and starts running your JavaScript code.
+		// React Router wakes up, looks at the URL bar, sees /login, and says: "Oh, I know what to do! I'll show the LoginPage component."
+	},
+	// ADD THIS SECTION BELOW:
+	"d1_databases": [
+		// {
+		// 	"binding": "DB",
+		// 	"database_name": "tpl-site-db",
+		// 	"database_id": "local-testing-only"
+		// },
+		{
+			"binding": "DB",
+			"database_name": "tpl-site-db",
+			"database_id": "56448d1f-8d60-464b-914e-76f933ac58ff"
+		}
+	],
+	"observability": {
+		"enabled": true
+	}
 }

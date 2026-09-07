@@ -1,5 +1,6 @@
 .wrangler
 .dev.vars
+.node_modules
 
 # Logs
 logs
@@ -25,3 +26,6 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+GoogleAuth.txt
+local_dump.sql

@@ -10,4 +10,10 @@ export default defineConfig({
     react(),
     babel({ presets: [reactCompilerPreset()] })
   ],
+  // appType: 'spa', 
+  // server: {
+  //   port: 5173,
+  //   // 2. Ensuring the port never changes (keeps Google OAuth happy)
+  //   strictPort: true,
+  // }
 })

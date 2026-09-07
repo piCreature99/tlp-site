@@ -105,7 +105,7 @@ export default function Footer() {
                     <Link href="http://online.gov.vn/..." target="_blank">
                         <Box
                             component="img"
-                            src="/path-to-your-gov-logo.png"
+                            src="https://upload.wikimedia.org/wikipedia/commons/a/ab/Android_logo_2019_%28stacked%29.svg"
                             alt="Registered with Ministry of Industry and Trade"
                             sx={{ width: 120, height: 'auto' }}
                         />

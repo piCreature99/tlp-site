@@ -1,0 +1,38 @@
+This project is created using vite + react, to initialize local development mode and ready for cloudflare deployment:
+1. Make sure to add wrangler.json
+
+2. Change package.json scripts section: 
+    "dev": "vite",
+    "build": "tsc -b && vite build",
+    "lint": "eslint .",
+    "typegen": "wrangler types",
+    "preview": "wrangler dev",
+    "deploy": "npm run build && wrangler deploy"
+
+3. Change vite.config.tsc (isntall @cloudflare-vite-plugin)
+    import { defineConfig } from 'vite'
+    import react, { reactCompilerPreset } from '@vitejs/plugin-react'
+    import babel from '@rolldown/plugin-babel'
+    import { cloudflare } from "@cloudflare/vite-plugin" // new
+
+    // https://vite.dev/config/
+    export default defineConfig({
+    plugins: [
+        cloudflare(), // new
+        react(),
+        babel({ presets: [reactCompilerPreset()] })
+    ],
+    })
+
+4. Add ASSETS to worker-configuration-d.ts (to create this file use npm run typegen):
+declare namespace Cloudflare {
+	interface Env {
+        ASSETS: Fetcher;
+	}
+}
+interface Env extends Cloudflare.Env {}
+
+5. add index.ts to your src folder
+
+6. Insert command from a schema:
+npx wrangler d1 execute tpl-site-db --local --file=seed.sql

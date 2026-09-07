@@ -4,6 +4,7 @@ import { darken, useTheme } from '@mui/material/styles';
 import { motion } from 'framer-motion';
 import BannerSlider from './BannerSlider';
 import type { BannerItem } from './types/types';
+import { HorizontalScrollWrapper } from './HorizontalScrollWrapper';
 
 const BANNER_DATA: BannerItem[] = [
     { id: 0, category: 'Electronics', image: "https://images.unsplash.com/photo-1445205170230-053b83016050?q=80&w=1000", color: "#1976d2" },
@@ -54,6 +55,7 @@ const SideVector = ({ side, bgColor }: { side: 'left' | 'right', bgColor: string
 export default function VectorCategoryBar() {
     const [pageData, setPageData] = useState([0, 0]); // [activeIndex, direction]
     const [activeIndex, direction] = pageData;
+    const [selectedCat, setSelectedCat] = useState("");
     const [isAnimating, setIsAnimating] = useState(false);
     const theme = useTheme(); // 1. Get the theme object
 
@@ -75,63 +77,68 @@ export default function VectorCategoryBar() {
         const loopedIndex = (newIndex + BANNER_DATA.length) % BANNER_DATA.length;
 
         // 3. Update the single source of truth
+        setSelectedCat(BANNER_DATA[loopedIndex].category);
         setPageData([loopedIndex, newDirection]);
     };
 
     return (
         <Box sx={{ display: 'flex', flexDirection: 'column', marginTop: 1, py: 1, borderRadius: 1, overflow: 'hidden', bgcolor: 'background.paper', mx: 2, filter: 'drop-shadow(0px 4px 5px rgba(0,0,0,0.2))', }}>
-            <Box sx={{ display: 'flex', justifyContent: 'center', bgcolor: 'background.paper', }}>
-                <Box sx={{ display: 'flex', gap: 4 }}>
-                    {BANNER_DATA.map((category, index) => {
-                        const isActive = activeIndex === index;
+            <HorizontalScrollWrapper selectedCat={selectedCat}>
+                <Box sx={{ display: 'flex', justifyContent: 'center', bgcolor: 'background.paper', mx: 2 }}>
+                    <Box sx={{ display: 'flex', gap: 4 }}>
+                        {BANNER_DATA.map((category, index) => {
+                            const isActive = activeIndex === index;
 
-                        return (
-                            <Box
-                                key={category.category}
-                                component={motion.div}
-                                sx={{
-                                    height: 50,
-                                    display: 'flex',
-                                    position: 'relative',
-                                    backgroundColor: isActive ? (theme) => darken(theme.palette.background.paper, 0.1) : 'background.paper',
-                                }}
-                            >
-                                <Button
-                                    onClick={() => updateSlider(index)}
+                            return (
+                                <Box
+                                    key={category.category} // key should be a unique string not a number since number can inherit link of other component which causes confusion for motion
+                                    component={motion.div}
+                                    // 2. Data Attribute for the Wrapper's search
+                                    data-id={category.category}
                                     sx={{
-                                        textTransform: 'none',
-                                        fontWeight: isActive ? 700 : 400,
-                                        color: isActive ? 'primary.main' : 'text.secondary',
-                                        px: 3,
-                                        '&:hover': { bgcolor: 'transparent' }
+                                        height: 50,
+                                        display: 'flex',
+                                        position: 'relative',
+                                        backgroundColor: isActive ? (theme) => darken(theme.palette.background.paper, 0.1) : 'background.paper',
                                     }}
                                 >
-                                    {category.category}
-                                </Button>
+                                    <Button
+                                        onClick={() => { updateSlider(index);}}
+                                        sx={{
+                                            textTransform: 'none',
+                                            fontWeight: isActive ? 700 : 400,
+                                            color: isActive ? 'primary.main' : 'text.secondary',
+                                            px: 3,
+                                            '&:hover': { bgcolor: 'transparent' }
+                                        }}
+                                    >
+                                        {category.category}
+                                    </Button>
 
-                                {/* Only the active button renders the vectors */}
-                                {isActive && (
-                                    <>
-                                        <SideVector side="left" bgColor={darken(theme.palette.background.paper, 0.1)} />
-                                        <SideVector side="right" bgColor={darken(theme.palette.background.paper, 0.1)} />
-                                        {/* Optional: Background highlight that also slides */}
-                                        <motion.div
-                                            layoutId="activeBackground"
-                                            style={{
-                                                position: 'absolute',
-                                                inset: 0,
-                                                backgroundColor: 'rgba(25, 118, 210, 0.05)',
-                                                borderRadius: '8px',
-                                                zIndex: -2
-                                            }}
-                                        />
-                                    </>
-                                )}
-                            </Box>
-                        );
-                    })}
+                                    {/* Only the active button renders the vectors */}
+                                    {isActive && (
+                                        <>
+                                            <SideVector side="left" bgColor={darken(theme.palette.background.paper, 0.1)} />
+                                            <SideVector side="right" bgColor={darken(theme.palette.background.paper, 0.1)} />
+                                            {/* Optional: Background highlight that also slides */}
+                                            <motion.div
+                                                layoutId="activeBackground"
+                                                style={{
+                                                    position: 'absolute',
+                                                    inset: 0,
+                                                    backgroundColor: 'rgba(25, 118, 210, 0.05)',
+                                                    borderRadius: '8px',
+                                                    zIndex: -2
+                                                }}
+                                            />
+                                        </>
+                                    )}
+                                </Box>
+                            );
+                        })}
+                    </Box>
                 </Box>
-            </Box>
+            </HorizontalScrollWrapper>
             <BannerSlider activeIndex={activeIndex} dir={direction} items={BANNER_DATA} onDirectionChange={updateSlider} isAnimating={setIsAnimating} />
         </Box>
     );
