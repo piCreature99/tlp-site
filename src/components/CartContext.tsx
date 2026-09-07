@@ -1,7 +1,6 @@
 import { createContext, useContext, useEffect, useState, type ReactNode } from 'react';
-import { type Product } from './types/types'
-import { localDb, type JoinedProduct } from '../api/indexedDB';
 import { fetchLocalCartForUser } from '../api/helper';
+import { localDb, type JoinedProduct } from '../api/indexedDB';
 
 // Define the shape of our Context State
 interface CartContextType {
@@ -85,7 +84,7 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
         throw new Error(`Cloudflare sync failed: ${response.status}`);
       }
 
-      const data = await response.json();
+      const data: any = await response.json();
 
       if (data.success) {
         // 🛡️ Safe Dexie Read-Write Transaction
@@ -151,7 +150,7 @@ export const useCart = () => {
   const context = useContext(CartContext);
   if (!context) {
     // throw new Error("useCart must be used within a CartProvider");
-    return { cart: [], cartCount, addToCart: () => { } };
+    return { cart: [], cartCount: 0, addToCart: () => { } };
   }
   return context;
 };
