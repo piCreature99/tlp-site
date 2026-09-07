@@ -3,11 +3,12 @@ import Grid from '@mui/material/Grid'; // Standard import
 import React from 'react';
 import ProductCard from './ProductCard';
 import type { Product } from './types/types';
+import type { JoinedProduct } from '../api/indexedDB';
 
 interface ProductSlotProps {
   children?: React.ReactNode;
   loading: boolean;
-  product: Product | undefined;
+  product: JoinedProduct | undefined;
 }
 
 export default function ProductSlot({ children, loading, product }: ProductSlotProps){

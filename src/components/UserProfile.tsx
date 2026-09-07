@@ -99,7 +99,7 @@ export default function UserProfilePage() {
                     onClick={() => setActiveTab('profile')}
                   >
                     <ListItemIcon><Person color={activeTab === 'profile' ? 'primary' : 'inherit'} /></ListItemIcon>
-                    <ListItemText primary="Account Profile" primaryTypographyProps={{ fontWeight: activeTab === 'profile' ? 700 : 500 }} />
+                    <ListItemText primary="Account Profile" />
                   </ListItemButton>
                 </ListItem>
 
@@ -109,7 +109,7 @@ export default function UserProfilePage() {
                     onClick={() => setActiveTab('orders')}
                   >
                     <ListItemIcon><LocalShipping color={activeTab === 'orders' ? 'primary' : 'inherit'} /></ListItemIcon>
-                    <ListItemText primary="My Orders" primaryTypographyProps={{ fontWeight: activeTab === 'orders' ? 700 : 500 }} />
+                    <ListItemText primary="My Orders" />
                   </ListItemButton>
                 </ListItem>
 
@@ -119,7 +119,7 @@ export default function UserProfilePage() {
                     onClick={() => setActiveTab('cart')}
                   >
                     <ListItemIcon><ShoppingCart color={activeTab === 'cart' ? 'primary' : 'inherit'} /></ListItemIcon>
-                    <ListItemText primary="My Cart" primaryTypographyProps={{ fontWeight: activeTab === 'orders' ? 700 : 500 }} />
+                    <ListItemText primary="My Cart" />
                   </ListItemButton>
                 </ListItem>
 
@@ -142,7 +142,7 @@ export default function UserProfilePage() {
                 <ListItem disablePadding>
                   <ListItemButton sx={{ color: 'error.main' }}>
                     <ListItemIcon><Logout color="error" /></ListItemIcon>
-                    <ListItemText primary="Sign Out" primaryTypographyProps={{ fontWeight: 600 }} />
+                    <ListItemText primary="Sign Out"/>
                   </ListItemButton>
                 </ListItem>
               </List>
@@ -178,7 +178,7 @@ export default function UserProfilePage() {
                       <TextField 
                         label="Display Name" 
                         value={user?.name} 
-                        onChange={(e) => setUserInfo({ ...user, name: e.target.value })}
+                        onChange={(e) => {}}
                         fullWidth 
                         size="small" 
                       />

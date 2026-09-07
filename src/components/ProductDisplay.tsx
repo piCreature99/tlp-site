@@ -7,6 +7,7 @@ import ProductSlot from './ProductSlot';
 import { theme } from '../themes/theme';
 import { AnimatePresence, motion } from 'framer-motion';
 import { SearchOff } from '@mui/icons-material';
+import type { JoinedProduct } from '../api/indexedDB';
 
 // const shuffleArray = (array: any) => {
 //     const shuffled = [...array];
@@ -34,7 +35,7 @@ import { SearchOff } from '@mui/icons-material';
 // ];
 
 
-export default function ProductDisplay({ index, products, productCount, activePageIndex, dir, isLoading = true }: { index: number, products: Product[], productCount: number, activePageIndex: number, dir: number, isLoading?: boolean }) {
+export default function ProductDisplay({ index, products, productCount, activePageIndex, dir, isLoading = true }: { index: number, products: JoinedProduct[], productCount: number, activePageIndex: number, dir: number, isLoading?: boolean }) {
     const [[page, direction], setPage] = useState([activePageIndex, 0]);
     const [contentHeight, setContentHeight] = useState<number | 'auto'>(0);
     const containerRef = useRef<HTMLDivElement>(null);

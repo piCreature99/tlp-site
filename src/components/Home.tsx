@@ -43,7 +43,7 @@ export default function Home() {
                         Back to Catalog
                     </Button>
 
-                    <ProductPage product={selectedProduct} />
+                    <ProductPage />
                 </Stack>
             )}
             <Footer />

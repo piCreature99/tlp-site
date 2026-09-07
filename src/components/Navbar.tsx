@@ -269,7 +269,7 @@ export default function Navbar() {
                                                     {/* ❌ STATE A: NO RESULTS */}
                                                     {showNoResults && (
                                                         <Box sx={{ padding: 2, textAlign: 'center' }}>
-                                                            <Typography variant="body1" color="text.secondary" fontWeight="medium">
+                                                            <Typography variant="body1" color="text.secondary">
                                                                 No results found
                                                             </Typography>
                                                         </Box>
@@ -305,12 +305,12 @@ export default function Navbar() {
                                                                     {/* 📝 Product Text Details */}
                                                                     <ListItemText
                                                                         primary={
-                                                                            <Typography variant="body1" fontWeight="medium" noWrap color="text.primary">
+                                                                            <Typography variant="body1" noWrap color="text.primary">
                                                                                 {product.name}
                                                                             </Typography>
                                                                         }
                                                                         secondary={
-                                                                            <Typography variant="body2" color="primary.main" fontWeight="bold">
+                                                                            <Typography variant="body2" color="primary.main" >
                                                                                 ${product.price.toFixed(2)}
                                                                             </Typography>
                                                                         }
@@ -324,7 +324,7 @@ export default function Navbar() {
 
                                                                         }}
                                                                         primary={
-                                                                            <Typography variant="body1" fontWeight="medium" noWrap color="text.primary">
+                                                                            <Typography variant="body1" noWrap color="text.primary">
                                                                                 ${product.price.toFixed(2)}
                                                                             </Typography>
                                                                         }

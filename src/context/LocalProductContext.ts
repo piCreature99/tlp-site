@@ -4,7 +4,7 @@ import type { Brand, Category, JoinedProduct, Product, ProductTag, Tag } from '.
 
 export interface ProductContextType {
   products: JoinedProduct[];
-  selectedProduct: JoinedProduct;
+  selectedProduct: JoinedProduct | null;
   getProductById: (idAndSlug: string) => Promise<JoinedProduct | null>
   totalPages: number;
   loading: boolean;

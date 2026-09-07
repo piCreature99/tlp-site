@@ -49,14 +49,14 @@ export default function Cart({ items }: { items: CartItem[] }) {
                         {items.map((item) => (
                             <TableRow key={item.id}>
                                 <TableCell>
-                                    <Stack direction="row" spacing={2} alignItems="center">
+                                    <Stack direction="row" spacing={2}>
                                         <Avatar src={item.image_url} alt={item.name} variant="rounded" sx={{ width: 40, height: 40, border: '1px solid', borderColor: 'divider' }} />
                                         <Typography variant="body2" sx={{ fontWeight: 600, maxWidth: 300 }} noWrap>
                                             {item.name}
                                         </Typography>
                                     </Stack>
                                 </TableCell>
-                                <TableCell><Box component="code" sx={{ bgcolor: 'action.selected', px: 1, py: 0.5, borderRadius: 1, fontSize: '0.75rem', fontFamily: 'monospace' }}>{item.sku}</Box></TableCell>
+                                <TableCell><Box component="code" sx={{ bgcolor: 'action.selected', px: 1, py: 0.5, borderRadius: 1, fontSize: '0.75rem', fontFamily: 'monospace' }}>{item.name}</Box></TableCell>
                                 <TableCell align="right">${item.price.toFixed(2)}</TableCell>
                                 <TableCell align="right" sx={{ fontWeight: 600 }}>{item.quantity}</TableCell>
                                 <TableCell align="right" sx={{ fontWeight: 700 }}>${(item.price * item.quantity).toFixed(2)}</TableCell>

@@ -143,7 +143,7 @@ function OrderRow({ order }: { order: Order }) {
                     {order.items.map((item) => (
                       <TableRow key={item.id}>
                         <TableCell>
-                          <Stack direction="row" spacing={2} alignItems="center">
+                          <Stack direction="row" spacing={2}>
                             <Avatar src={item.image} alt={item.name} variant="rounded" sx={{ width: 40, height: 40, border: '1px solid', borderColor: 'divider' }} />
                             <Typography variant="body2" sx={{ fontWeight: 600, maxWidth: 300 }} noWrap>
                               {item.name}

@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react';
-import { Box, Typography, Button, Paper, Fade } from '@mui/material';
 import MarkEmailReadIcon from '@mui/icons-material/MarkEmailRead';
+import { Box, Button, Fade, Paper, Typography } from '@mui/material';
+import { useEffect, useState } from 'react';
 
 export default function VerifyNotice({ email, onBack }: { email: string, onBack: () => void }){
     const [countdown, setCountdown] = useState(60);

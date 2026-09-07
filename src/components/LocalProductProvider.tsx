@@ -15,7 +15,7 @@ export function LocalProductProvider({ children }: { children: React.ReactNode }
   const [loading, setLoading] = useState(false);
 
   // --- Interactive Filtering Controls ---
-  const [selectedProduct, setSelectedProduct] = useState<JoinedProduct | null>();
+  const [selectedProduct, setSelectedProduct] = useState<JoinedProduct | null>(null);
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
   const [selectedBrands, setSelectedBrands] = useState<Set<string>>(new Set());
   const [selectedTags, setSelectedTags] = useState<Set<string>>(new Set());
